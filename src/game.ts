@@ -6,8 +6,8 @@ import { Ufo } from './ufo';
 export class Game {
   private ufo: Ufo;
   private obstacles: Obstacle[] = [];
-  private end$ = new Subject();
-  private score = 0;
+  public end$ = new Subject();
+  public score = 0;
   private tick$ = interval(20).pipe(takeUntil(this.end$));
   private drop$ = interval(1500).pipe(takeUntil(this.end$));
   private jump$ = fromEvent(document.querySelector('body'), 'keydown').pipe(
